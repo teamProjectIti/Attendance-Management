@@ -1,0 +1,11 @@
+
+<!-- <app-loading-spinner></app-loading-spinner> -->
+<app-main></app-main>
+
+<div *ngIf="isLoading" class="loading-spinner"> 
+  <app-loading-spinner></app-loading-spinner> 
+</div> 
+
+<button (click)="makeRequest()">Make Request</button>
+<app-meeting></app-meeting>
+<app-footer></app-footer>

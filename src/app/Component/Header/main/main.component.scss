@@ -1,0 +1,107 @@
+.navbar-nav .nav-item .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover::before,
+  .navbar-nav .nav-item .nav-link:focus::before {
+    transform: scaleX(1);
+  }
+  
+  .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+  }
+  
+  .dropdown-menu {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dropdown-item {
+    padding: 0.75rem 1.5rem;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .dropdown-menu-right {
+    right: 0 !important;
+    left: auto !important;
+  }
+  
+  .input-group {
+    margin-left: 1rem;
+    max-width: 25rem;
+  }
+  
+  .form-control {
+    border-radius: 2rem;
+  }
+  
+  .btn-outline-secondary {
+    border-radius: 2rem;
+    border-color: #007bff;
+    color: #007bff;
+  }
+  
+  .btn-outline-secondary:hover,
+  .btn-outline-secondary:focus {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+  }
+  
+  @media (max-width: 991.98px) {
+    .input-group {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  }
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-item {
+    position: relative;
+  }
+  
+  .navbar-nav .nav-item .nav-link {
+    padding: 1rem;
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .dropdown-menu {
+    margin-top: 0;
+  }
+  
+  .dropdown-menu .dropdown-item {
+    padding: 0.5rem 1rem;
+    font-weight: normal;
+  }
+  
+   
