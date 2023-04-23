@@ -30,7 +30,7 @@ export class MeetingsService {
     return this.http.delete<Imeeting[]>(`${this.url}Meeting/DeleteMeeting?id=${id}` );
   }
   // funcation Update
-  UPdate_Meeting_ByID(data:Imeeting): Observable<Imeeting>{
+  UPdate_Meeting(data:Imeeting): Observable<Imeeting>{
     return this.http.put<Imeeting>(`${this.url}Meeting/UpdateMeeting`, data);
   }
 }
