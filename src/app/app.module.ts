@@ -16,6 +16,8 @@ import { LoadingService } from './Services/Loading/LoadingService';
 import { LoadingSpinnerComponent } from './Component/Animation/loading-spinner/loading-spinner.component';
 import { MeetingComponent } from './Pages/Meetings/meeting/meeting.component';
 import { MeetingFormComponent } from './Pages/Meetings/meeting-form/meeting-form.component';
+import { SliderComponent } from './Component/slider/slider.component';
+import { MainLayoutMeetingComponent } from './Pages/Meetings/main-layout-meeting/main-layout-meeting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { MeetingFormComponent } from './Pages/Meetings/meeting-form/meeting-form
     AccountComponent,
     LoadingSpinnerComponent,
     MeetingComponent,
-    MeetingFormComponent
+    MeetingFormComponent,
+    SliderComponent,
+    MainLayoutMeetingComponent
   ],
   imports: [
     BrowserModule,FormsModule,ReactiveFormsModule,

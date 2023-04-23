@@ -12,7 +12,7 @@ export class MeetingFormComponent {
 
   onSave() {
     this.save.emit(this.Meeting);
-  }
+   }
 
   onDelete() {
     this.delete.emit(this.Meeting.id);

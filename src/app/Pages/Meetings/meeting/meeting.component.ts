@@ -14,7 +14,7 @@ export class MeetingComponent implements OnInit {
   MeetingList:Imeeting[]=[];
   selectedUser: any;
   page: number = 1;
-  pageSize: number = 8;
+  pageSize: number = 5;
   totalPages: number = 0;
   private id:number=0;
   meeting:Imeeting={} as Imeeting;
@@ -55,11 +55,13 @@ export class MeetingComponent implements OnInit {
     this.page++;
     this.getData();
   }
+   AddMeeting(meeting:any)
+  {
+    this.selectedUser = meeting;
+  }  
 
-  
-
-  editUser(user: any) {
-    this.selectedUser = user;
+  editUser(meeting: any) {
+    this.selectedUser = meeting;
   }
 
   deleteUser(id: any) {
@@ -67,16 +69,16 @@ export class MeetingComponent implements OnInit {
       this.MeetingList = this.MeetingList.filter(u => u.id != id);
       this.selectedUser = null;
       console.log(this.MeetingList);
-      console.log(res);
     })
    
   }
   saveUser(meeting: any) {
+    console.log(meeting);
     if (!meeting.id) {
       // Add new user
       this.api.entery_Meeting(meeting).subscribe(res=>{
-        meeting.id = this.MeetingList.length + 1;
-        this.MeetingList.push(meeting);
+        this.MeetingList.length + 1;
+        this.MeetingList.push(res);
       });
     } else {
       // Update existing Meeting
