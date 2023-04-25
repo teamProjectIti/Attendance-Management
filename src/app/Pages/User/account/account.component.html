@@ -1,1 +1,42 @@
-<p>account works!</p>
+<div class="container">
+    <table class="table my-3">
+        <thead class="bg-dark text-light">
+          <tr>
+             <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Name Father Church</th>
+            <th scope="col">Mobile</th> 
+            <th scope="col">Seeting</th> 
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let item of UserList.data; let i=index;">
+              <tr>
+                     <td>{{item.userName}}</td>
+                     <td>{{item.address}}</td>
+                     <td>{{item.nameFatherChurch}}</td>
+                     <td>{{item.mobile}}</td>
+                    <td>
+                        <a name="" id="" class="btn btn-danger mx-1"  role="button" (click)="deleteItem(item.id)">Delete</a>
+                        <a name="" id="" class="btn btn-info mx-1"  role="button" [routerLink]="['/user/', item.id]">Edit</a>
+                        <a name="" id="" class="btn btn-primary mx-1"  role="button" [routerLink]="['/user/']">New</a>
+                    </td>
+     
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    
+    <pagination class="d-flex justify-content-center" *ngIf="UserList"
+        [boundaryLinks]="true"
+        [totalItems]="UserList.totalPages"
+        [itemsPerPage]="pageSize"
+        [(ngModel)]="CurrentPage"
+        (pageChanged)="pageChanged($event)"
+        previousText="&lsaquo;"
+        nextText="&rsaquo;"
+        firstText="&laquo;" 
+        lastText="&raquo;">
+    </pagination>
+</div>
+
+ 

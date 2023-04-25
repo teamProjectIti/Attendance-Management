@@ -17,6 +17,8 @@ import { LoadingSpinnerComponent } from './Component/Animation/loading-spinner/l
 import { MeetingComponent } from './Pages/Meetings/meeting/meeting.component';
 import { MeetingFormComponent } from './Pages/Meetings/meeting-form/meeting-form.component';
 import { SliderComponent } from './Component/slider/slider.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { MainLayoutMeetingComponent } from './Pages/Meetings/main-layout-meeting/main-layout-meeting.component';
 @NgModule({
   declarations: [
@@ -30,18 +32,22 @@ import { MainLayoutMeetingComponent } from './Pages/Meetings/main-layout-meeting
     LoadingSpinnerComponent,
     MeetingComponent,
     MeetingFormComponent,
-    SliderComponent,
+    SliderComponent ,
     MainLayoutMeetingComponent
   ],
+  exports:[
+    PaginationModule,ModalModule
+  ],
   imports: [
-    BrowserModule,FormsModule,ReactiveFormsModule,
+    BrowserModule,FormsModule,ReactiveFormsModule,ModalModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularToastifyModule,HttpClientModule
+    AngularToastifyModule,HttpClientModule, PaginationModule.forRoot()
   ],
   providers: [
     LoadingService,
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptorService, multi: true },
   ],  bootstrap: [AppComponent]
 })
+
 export class AppModule { }

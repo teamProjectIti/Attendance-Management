@@ -14,15 +14,5 @@ export class AppComponent {
     return this.loadingService.isLoading;
   }
 
-  makeRequest() {
-    this.loadingService.showLoading();
-    this.http.get('https://fakestoreapi.com/products').subscribe(
-      (data) => {
-        console.log(data);
-       },
-      (error) => {
-        console.log(error);
-       }
-    );
-  }
+   
 }

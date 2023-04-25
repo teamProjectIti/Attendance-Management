@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Imeeting, MeetingResponse } from 'src/app/Interfaces/Meeting/Imeeting';
+import { AlertService } from 'src/app/Services/AlertNotifcation/AlertService';
 import { MeetingsService } from 'src/app/Services/Meeting/meetings.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class MeetingComponent implements OnInit {
 
 
 
-  constructor(private api:MeetingsService,private fb: FormBuilder,private activatedRoute:ActivatedRoute,private router: Router) { }
+  constructor(private alert:AlertService,private api:MeetingsService,private fb: FormBuilder,private activatedRoute:ActivatedRoute,private router: Router) { }
   
 
   ngOnInit(): void {
@@ -68,6 +69,7 @@ export class MeetingComponent implements OnInit {
     this.api.Delete_Meeting_ByID(id).subscribe(res=>{
       this.MeetingList = this.MeetingList.filter(u => u.id != id);
       this.selectedUser = null;
+      this.alert.message("Success Delete Item");
       console.log(this.MeetingList);
     })
    
@@ -83,9 +85,10 @@ export class MeetingComponent implements OnInit {
     } else {
       // Update existing Meeting
       this.api.UPdate_Meeting(meeting).subscribe(res=>{
+        this.alert.success("Success Update  Item");
         const index = this.MeetingList.findIndex(u => u.id === meeting.id);
         this.MeetingList[index] = meeting;
-      })
+      });
     }
     this.selectedUser = null;
   }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SliderComponent } from './Component/slider/slider.component';
 import { MeetingComponent } from './Pages/Meetings/meeting/meeting.component';
 import { MainLayoutMeetingComponent } from './Pages/Meetings/main-layout-meeting/main-layout-meeting.component';
+import { AccountComponent } from './Pages/User/account/account.component';
 
 const routes: Routes = [
 
@@ -12,7 +13,8 @@ const routes: Routes = [
 
   {path:'', component:MainLayoutMeetingComponent,children:[
     {path:'Meeting', component:MeetingComponent}, 
-     ]},
+    {path:'User', component:AccountComponent}, 
+  ]},
 ];
 
 @NgModule({
