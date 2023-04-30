@@ -1,14 +1,25 @@
 <div class="row">
     <form>
+      <div class="container-f text-end">
+        <div class="row">
+          <div class="col-8">
+            <h4 class="text-light">Details Meeting For Update </h4>
+          </div>
+          <div class="col-4">
+            <button type="button" class="  btn btn-outline-danger" (click)="onClose()">X</button>
+          </div>
+        </div>
+      
+      </div>
         <div class="form-group row mt-1">
-          <label for="name" class="col-sm-2 col-form-label col-md-3">Name:</label>
+          <label for="name" class="col-sm-2 col-form-label col-md-3"><strong>Name:</strong></label>
           <div class="col-sm-10 col-md-9">
             <input type="text" class="form-control" [(ngModel)]="Meeting.name" name="name" id="name">
           </div>
         </div>
         
         <div class="form-group row mt-1">
-          <label for="text" class="col-sm-2 col-form-label col-md-3">Data Meeting:</label>
+          <label for="text" class="col-sm-2 col-form-label col-md-3"><strong>Data Meeting:</strong></label>
           <div class="col-sm-10 col-md-9">
             <input type="date" class="form-control" [(ngModel)]="Meeting.date" name="date" >
           </div>

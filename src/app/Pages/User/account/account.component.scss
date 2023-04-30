@@ -1,4 +1,16 @@
-table {
-    width: 100%;
+.modalx{
+  z-index: 999;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50px);
+  background: #2e3a44;
+  padding: 3pc;
+  border-radius: 12px;
+  transition: all 2s ease;
+  opacity: 8;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 2px 2px 2px 2px silver;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
   }
-  

@@ -1,16 +1,19 @@
 
-<div class="container">
-  
-</div>
 
 <div class="container-f">
-  <div class="container m-1">
-    <button class="btn btn-outline-info mx-1" (click)="AddMeeting(meeting)">Add New Meeting</button>
-  </div>
+  
   <div class="row">
-    <div class="col-8">
+    <div class="col-12">
       <div class="container text-center">
-        <h2>All Meetings</h2>
+
+        <div class="container-f row m-1">
+          <div class="col-8 text-center">
+            <h2>All Meetings</h2>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-outline-info mx-1" (click)="AddMeeting(meeting)">Add New Meeting</button>
+          </div>
+        </div>
 
         <table class="table table-striped">
           <thead>
@@ -50,14 +53,15 @@
       </div>
       
     </div>
-    <div class="col-4">
+   
+    <div class="col-4" [ngClass]="{modalx: selectedUser}">
       <app-meeting-form *ngIf="selectedUser"
         [Meeting]="selectedUser"
         (save)="saveUser($event)"
-        (delete)="deleteUser($event)">
+        (delete)="deleteUser($event)"
+        (Close)="closeComponet()">
       </app-meeting-form>
     </div>
-
   </div>
 </div>
 

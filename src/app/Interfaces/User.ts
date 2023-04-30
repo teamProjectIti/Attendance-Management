@@ -2,13 +2,13 @@ export interface User {
     id?: number;
     userName: string;
     address : string;
-    City: string;
-    BrithDate: any;
-    nameFatherChurch ?: string;
-    Status: string;
-    CountChildren?: number;
-    NameJop?: number;
-    IdFaceBook?: number;
+    city: any;
+    brithDate: any;
+    nameFatherChurch ?: any;
+    status: boolean;
+    countChildren?: number;
+    nameJop?: number;
+    IdFaceBook?: string;
     mobile: number;
   }
 
@@ -16,4 +16,4 @@ export interface User {
     data: User[];
     totalPages: number;
   }
-  
+ 

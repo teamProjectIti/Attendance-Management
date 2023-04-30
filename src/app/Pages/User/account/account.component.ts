@@ -13,12 +13,16 @@ import { UserService } from 'src/app/Services/User/user.service';
  
 export class AccountComponent implements OnInit {
   UserList:UserResponse={} as UserResponse ;
+  UsersList:User[]=[];
+  selectedUser: any;
   pageSize=8;
   PageNumber=1;
   CurrentPage=1;
   modalRef?: BsModalRef;
   message?: string;
-  
+  searchName:any;
+  searchFather:any;
+  searchAddress:any;
   
   UserObj:User={} as User;
   private id:number=0;
@@ -52,34 +56,58 @@ export class AccountComponent implements OnInit {
     this.PageNumber=event.page;
     this.loadUser();
   }
-  saveCategory()
+  
+  closeComponet()
   {
-    if(this.id)
-    {
-      console.log(this.id);
-      this.api.updateUser(this.id,this.UserObj).subscribe(product=>{
-        this.router.navigate(['/slider']);
-      });
-    }
-    else{
-     // console.log(this.brand);
-      this.api.createUser(this.UserObj).subscribe(prd=>{
-     // this.alert.message("Success insert data");
-      this.router.navigate(['/slider']);
-    },err=>{
-     // this.alert.error("faild insert data");
-      console.log(err);
-    });
-    }
+    this.selectedUser = null;
   }
-  deleteItem(id:any)
+
+  editUser(user: any) {
+    console.log(user);
+    this.selectedUser = user;
+  }
+
+  deleteUser(id:any)
   {
+    if (!confirm("Are You Want Delete This ?"))
+    {
+        return;
+    }
     this.api.deleteUser(id).subscribe(data=>{
       this.UserList.data=this.UserList.data.filter(x=>x.id !== id);
       this.alert.message("Success Delete Item");
       // this.router.navigate(['/slider']); 
       })
   }
+  saveUser(user: any) {
+    // console.log(user);
+    if (!user.id) {
+      // Add new user
+      this.api.createUser(user).subscribe(res=>{
+        this.UserList.data.length + 1;
+        this.UserList.data.push(res);
+      });
+    } else {
+      // Update existing Meeting
+      this.api.updateUser(user.id,user).subscribe(res=>{
+        this.alert.success("Success Update  Item");
+        const index = this.UserList.data.findIndex(u => u.id === user.id);
+        this.UserList.data[index] = user;
+      });
+    }
+    this.selectedUser = null;
+  }
+  search()
+  {
+      this.api.SearchUser(this.searchName,this.searchFather,this.searchAddress).subscribe(res=>{
+        this.UserList.data=res;
+         console.table(res);
+        });
+        this.searchName=this.searchFather=this.searchAddress="";
+  }
+  AddUser( )
+  {
+    this.selectedUser = this.UserObj;
+  }  
 
-   
 }

@@ -1,4 +1,25 @@
 <div class="container">
+  <div class="container bg-light p-2">
+    <div class="row">
+      <div class="col-8 row ">
+        <div class="col-3">
+          <input class="form-control" type="text" [(ngModel)]="searchName" placeholder="Search Name">
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="text" [(ngModel)]="searchFather" placeholder="Search Father">
+        </div> 
+        <div class="col-3">
+          <input class="form-control" type="text" [(ngModel)]="searchAddress" placeholder="Search Address">
+        </div>
+        <div class="col-3">
+          <button class="btn btn-info" (click)="search()">Search</button>
+        </div>
+      </div>
+      <div class="col-3">                  
+        <a name="" id="" class="btn btn-primary mx-1 form-control"  role="button"  (click)="AddUser()">Inser New User</a>
+      </div> 
+    </div>
+  </div>
     <table class="table my-3">
         <thead class="bg-dark text-light">
           <tr>
@@ -7,6 +28,7 @@
             <th scope="col">Name Father Church</th>
             <th scope="col">Mobile</th> 
             <th scope="col">Seeting</th> 
+           
         </thead>
         <tbody>
           <ng-container *ngFor="let item of UserList.data; let i=index;">
@@ -16,9 +38,8 @@
                      <td>{{item.nameFatherChurch}}</td>
                      <td>{{item.mobile}}</td>
                     <td>
-                        <a name="" id="" class="btn btn-danger mx-1"  role="button" (click)="deleteItem(item.id)">Delete</a>
-                        <a name="" id="" class="btn btn-info mx-1"  role="button" [routerLink]="['/user/', item.id]">Edit</a>
-                        <a name="" id="" class="btn btn-primary mx-1"  role="button" [routerLink]="['/user/']">New</a>
+                        <a name="" id="" class="btn btn-danger mx-1"  role="button" (click)="deleteUser(item.id)">Delete</a>
+                        <a name="" (click)="editUser(item)" id="" class="btn btn-info mx-1"  role="button" [routerLink]="['/user/', item.id]">Edit</a>
                     </td>
      
             </tr>
@@ -40,3 +61,11 @@
 </div>
 
  
+<div class="col-7" [ngClass]="{modalx: selectedUser}">
+  <app-form-user *ngIf="selectedUser"
+    [user]="selectedUser"
+    (save)="saveUser($event)"
+    (delete)="deleteUser($event)"
+    (Close)="closeComponet()">
+  </app-form-user>
+</div>

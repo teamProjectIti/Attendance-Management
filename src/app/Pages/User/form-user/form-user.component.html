@@ -1,0 +1,106 @@
+<div class="row">
+  <form>
+    <div class="container-f text-end">
+      <div class="row">
+        <div class="col-8">
+          <h4 class="text-light">Details Meeting For Update </h4>
+        </div>
+        <div class="col-4">
+          <button type="button" class="  btn btn-outline-info" (click)="onClose()">X</button>
+        </div>
+      </div>
+    
+    </div>
+<hr/>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group row mt-1">
+            <label for="name" class="col-sm-2 col-form-label col-md-3"><strong>userName:</strong></label>
+            <div class="col-sm-10 col-md-9">
+              <input type="text" class="form-control" [(ngModel)]="user.userName" name="name" id="name">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group row mt-1">
+            <label for="text" class="col-sm-2 col-form-label col-md-3"><strong>address:</strong></label>
+            <div class="col-sm-10 col-md-9">
+              <input type="text" class="form-control" [(ngModel)]="user.address" name="date" >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group row mt-1">
+            <label for="text" class="col-sm-2 col-form-label col-md-3"><strong>City :</strong></label>
+            <div class="col-sm-10 col-md-9">
+              <input type="text" class="form-control" [(ngModel)]="user.city"  name="city">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group row mt-1">
+            <label for="text" class="col-sm-2 col-form-label col-md-3"><strong>BrithDate :</strong></label>
+            <div class="col-sm-10 col-md-9">
+              <input type="date" class="form-control" [(ngModel)]="user.brithDate" name="brithDate" >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="form-check">
+            <!-- <input class="form-check-input" type="checkbox" [(ngModel)]="user.Status" value="" id="flexCheckDefault"> -->
+            <input class="form-check-input" type="checkbox" [(ngModel)]="user.status" (change)="onCheckboxChange($event)">
+            <label class="form-check-label" for="flexCheckDefault">
+              Status User
+            </label>
+          </div>
+        </div>
+
+        <div class="col-8">
+          <div class="form-group row mt-1">
+            <label for="text" class="col-sm-6 col-form-label col-md-6"><strong>name Father Church :</strong></label>
+            <div class="col-sm-6 col-md-6">
+              <input type="text" class="form-control" [(ngModel)]="user.nameFatherChurch" name="nameFatherChurch" >
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+      <div class="form-group row mt-1">
+        <label for="text" class="col-sm-2 col-form-label col-md-3"><strong>Count Children :</strong></label>
+        <div class="col-sm-10 col-md-9">
+          <input type="text" class="form-control" [(ngModel)]="user.countChildren" name="user.countChildren" >
+        </div>
+      </div>
+
+      <div class="form-group row mt-1">
+        <label for="text" class="col-sm-2 col-form-label col-md-3"><strong>NameJop :</strong></label>
+        <div class="col-sm-10 col-md-9">
+          <input type="text" class="form-control" [(ngModel)]="user.nameJop" name="nameJop" >
+        </div>
+      </div>
+      
+      <div class="form-group row mt-1">
+        <label for="text" class="col-sm-2 col-form-label col-md-3"><strong>mobile :</strong></label>
+        <div class="col-sm-10 col-md-9">
+          <input type="number" class="form-control" [(ngModel)]="user.mobile" name="mobile" >
+        </div>
+      </div>
+
+      <hr>
+      <div class="form-group row mt-1">
+        <div class="col-sm-10 offset-sm-2 col-md-9 offset-md-3">
+          <button type="button" class="btn btn-primary btn-block m-1" (click)="onSave()">Save</button>
+          <button type="button" class="btn btn-danger btn-block m-1" (click)="onDelete()">Delete</button>
+        </div>
+      </div>
+    </form>
+    
+</div>

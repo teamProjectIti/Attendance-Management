@@ -1,1 +1,16 @@
- 
+.modalx{
+    z-index: 999;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50px);
+    background: #2e3a44;
+    padding: 3pc;
+    border-radius: 12px;
+    opacity: 8;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 2px 2px 2px 2px silver;
+    transition: all 1s ease-in-out;
+
+   }

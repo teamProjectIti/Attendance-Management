@@ -24,6 +24,7 @@ export class UserService {
   }
 
   createUser(user: User): Observable<User> {
+    console.log(user);
     const url = `${this.baseUrl}User/CreateUser`;
     return this.http.post<User>(url, user);
   }
@@ -36,6 +37,9 @@ export class UserService {
   deleteUser(id: number): Observable<void> {
     const url = `${this.baseUrl}User/DeleteUser?id=${id}`;
     return this.http.delete<void>(url);
+  } 
+  SearchUser(name?:string,father?:string,address?:string): Observable<User[]> {
+    const url = `${this.baseUrl}User/SearchUser?name=${name}&father=${father}&Address=${address}`;
+    return this.http.get<User[]>(url);
   }
-
-}
+ }

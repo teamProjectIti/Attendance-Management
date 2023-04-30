@@ -20,6 +20,7 @@ import { SliderComponent } from './Component/slider/slider.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MainLayoutMeetingComponent } from './Pages/Meetings/main-layout-meeting/main-layout-meeting.component';
+import { FormUserComponent } from './Pages/User/form-user/form-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { MainLayoutMeetingComponent } from './Pages/Meetings/main-layout-meeting
     MeetingComponent,
     MeetingFormComponent,
     SliderComponent ,
-    MainLayoutMeetingComponent
+    MainLayoutMeetingComponent,
+    FormUserComponent
   ],
   exports:[
     PaginationModule,ModalModule

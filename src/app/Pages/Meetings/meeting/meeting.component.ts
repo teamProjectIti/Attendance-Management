@@ -28,7 +28,7 @@ export class MeetingComponent implements OnInit {
 
   ngOnInit(): void {
      this.getData();
-  }
+   }
 
   getData(): void {
     this.api.get_all_Meeting(this.page,this.pageSize).subscribe((res: MeetingResponse)=>{
@@ -66,6 +66,10 @@ export class MeetingComponent implements OnInit {
   }
 
   deleteUser(id: any) {
+    if (!confirm("Are You Want Delete This ?"))
+    {
+        return;
+    }
     this.api.Delete_Meeting_ByID(id).subscribe(res=>{
       this.MeetingList = this.MeetingList.filter(u => u.id != id);
       this.selectedUser = null;
@@ -74,8 +78,11 @@ export class MeetingComponent implements OnInit {
     })
    
   }
+  closeComponet()
+  {
+    this.selectedUser = null;
+  }
   saveUser(meeting: any) {
-    console.log(meeting);
     if (!meeting.id) {
       // Add new user
       this.api.entery_Meeting(meeting).subscribe(res=>{
