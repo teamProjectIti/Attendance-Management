@@ -21,6 +21,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MainLayoutMeetingComponent } from './Pages/Meetings/main-layout-meeting/main-layout-meeting.component';
 import { FormUserComponent } from './Pages/User/form-user/form-user.component';
+import { AttendanceFormComponent } from './Pages/Attendances/attendance-form/attendance-form.component';
+import { MeetingUserComponent } from './Services/MeetingUsers/meeting-user/meeting-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { FormUserComponent } from './Pages/User/form-user/form-user.component';
     MeetingFormComponent,
     SliderComponent ,
     MainLayoutMeetingComponent,
-    FormUserComponent
+    FormUserComponent,
+    AttendanceFormComponent,
+    MeetingUserComponent
   ],
   exports:[
     PaginationModule,ModalModule
